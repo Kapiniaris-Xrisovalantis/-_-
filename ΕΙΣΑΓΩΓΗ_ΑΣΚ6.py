@@ -1,9 +1,6 @@
 import random
 
-#function to print the board
-def print_board(x):
-	for i in range(8):
-		print( " ".join(x[i]))
+
 
 #function to change the B to b if the bishop theatens the queen
 def fix_position(p):
@@ -47,6 +44,6 @@ for l in range(100):
         for j in range(8):
             if board[i][j]=="b":
                 cnt+=1
-    #print("----")                                   
-    #print_board(board)
+                                       
+    
 print ("The Queen was threatened " ,cnt," times")
