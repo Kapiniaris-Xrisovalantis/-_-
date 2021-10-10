@@ -2,7 +2,7 @@ import random
 
 
 
-#function to change the B to b if the bishop theatens the queen
+#συναρτηση που αλλαζει τον αξιωματικο(Β) σε b αν απειλει την βασιλισσα
 def fix_position(p):
 	if p=="B":
         
@@ -11,16 +11,16 @@ def fix_position(p):
 	else:
 		return p
 
-#a counter to count how many times queen has been threatened
+#μετρητης για ποσες φορες απειληθηκε η βασιλισσα
 cnt =0
 for l in range(100):
     QUEEN=1
     BISHOP=1
-    #place the 2 pieces
+    #τοποθετησε τα πιονια
     tmp=["0"]*(64-QUEEN-BISHOP)
     tmp+=["Q"]*QUEEN
     tmp+=["B"]*BISHOP
-    #shuffle them
+    #ανακατεψε τα
     random.shuffle(tmp)
     board=[]
     
@@ -32,14 +32,14 @@ for l in range(100):
             if board[i][j]=="Q":
 
                 for k in range(8):
-                    
+                    #κυρια διαγωνιος με κεντρο την βασιλισσα
                         if k!=i and k+j-i>=0 and k+j-i<8:
                             board[k][k+j-i]=fix_position(board[k][k+j-i])
-                            
+                    #δευτερευουσα διαγωνιοσ με κεντρο την βασιλισσα        
                         if k!=i and -k+j+i>=0 and -k+j+i<8:
                             board[k][-k+i+j]= fix_position(board[k][-k+i+j])
                             
-
+#αυξησε τον μετρητη αν βρεθει b μεσα στον πινακα
     for i in range(8):
         for j in range(8):
             if board[i][j]=="b":
