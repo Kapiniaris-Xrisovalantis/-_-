@@ -2,7 +2,7 @@ import random
 
 #function to print the board
 def print_board(x):
-	for i in range(3):
+	for i in range(8):
 		print( " ".join(x[i]))
 
 #function to change the B to b if the bishop theatens the queen
